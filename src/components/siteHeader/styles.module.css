@@ -1,0 +1,101 @@
+.siteHeader {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid #32478e;
+    background: #233c9d;
+    color: #fff;
+
+    .headerInner {
+        display: grid;
+        width: min(1180px, calc(100% - 40px));
+        height: 62px;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .brand {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 9px;
+        font-size: 14px;
+        font-weight: 750;
+        letter-spacing: -0.02em;
+    }
+
+    .brandMark {
+        display: grid;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--blue-dark);
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    .sectionLink {
+        border: 1px solid transparent;
+        border-radius: 6px;
+        padding: 6px 10px;
+        color: #d6defc;
+        font-size: 11px;
+        font-weight: 650;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: #8497eb;
+            box-shadow: 0 0 0 2px rgb(255 255 255 / 10%);
+        }
+    }
+
+    .repositoryLink {
+        display: inline-flex;
+        min-height: 35px;
+        align-items: center;
+        justify-self: end;
+        gap: 7px;
+        border: 1px solid #687bd0;
+        border-radius: 7px;
+        padding: 0 10px;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 650;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        &:hover {
+            border-color: var(--mint);
+            box-shadow: 0 0 0 2px rgb(200 243 225 / 12%);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .headerInner {
+            width: calc(100% - 24px);
+            height: 58px;
+        }
+
+        .sectionLink {
+            display: none;
+        }
+
+        .repositoryLink {
+            min-height: 33px;
+            gap: 5px;
+            padding-inline: 8px;
+        }
+    }
+}
