@@ -1,0 +1,44 @@
+.backToTop {
+    position: fixed;
+    z-index: 60;
+    right: 18px;
+    bottom: 18px;
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #8293e1;
+    border-radius: 999px;
+    background: var(--blue-dark);
+    padding: 0 11px;
+    box-shadow: 0 5px 19px rgb(29 46 116 / 24%);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+
+    svg {
+        width: 15px;
+        height: 15px;
+        color: var(--mint);
+    }
+
+    &:hover {
+        border-color: var(--mint);
+        box-shadow: 0 0 0 3px rgb(200 243 225 / 17%), 0 5px 19px rgb(29 46 116 / 24%);
+    }
+
+    &:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 600px) {
+        right: 12px;
+        bottom: 12px;
+        min-width: 42px;
+        min-height: 42px;
+    }
+}
