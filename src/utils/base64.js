@@ -11,15 +11,28 @@ export const encodeUtf8Base64 = (value, urlSafe = false) => {
 };
 
 export const decodeUtf8Base64 = (value) => {
+    const invalidBase64 = new Error("Enter valid Base64 text, then try again.");
     const cleaned = value
         .replace(/\s/g, "")
         .replace(/-/g, "+")
         .replace(/_/g, "/");
     if (cleaned.length % 4 === 1 || !/^[A-Za-z0-9+/]*={0,2}$/.test(cleaned)) {
-        throw new Error("Enter valid Base64 text, then try again.");
+        throw invalidBase64;
     }
-    const padded = cleaned + "=".repeat((4 - (cleaned.length % 4)) % 4);
-    const binary = atob(padded);
+    const unpadded = cleaned.replace(/=+$/g, "");
+    const existingPadding = cleaned.length - unpadded.length;
+    const requiredPadding = (4 - (unpadded.length % 4)) % 4;
+    if (existingPadding && (cleaned.length % 4 !== 0 || existingPadding !== requiredPadding)) {
+        throw invalidBase64;
+    }
+    const padded = unpadded + "=".repeat(requiredPadding);
+    let binary;
+    try {
+        binary = atob(padded);
+    } catch {
+        throw invalidBase64;
+    }
+    if (btoa(binary) !== padded) throw invalidBase64;
     const bytes = Uint8Array.from(binary, (character) =>
         character.charCodeAt(0),
     );

@@ -2,8 +2,14 @@
     "name": "base64-converter",
     "private": true,
     "version": "1.0.0",
+    "description": "Browser-based UTF-8 Base64 text encoder and decoder with URL-safe output",
     "type": "module",
     "homepage": "https://a2rp.github.io/base64-converter",
+    "keywords": ["base64", "base64-converter", "base64-encoder", "base64-decoder", "react", "vite", "javascript", "utf-8", "url-safe-base64", "github-pages", "client-side"],
+    "author": "Ashish Ranjan",
+    "engines": {
+        "node": ">=20.19.0"
+    },
     "scripts": {
         "dev": "vite",
         "build": "vite build",

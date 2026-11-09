@@ -22,6 +22,11 @@ Choose Encode to turn text into Base64 or Decode to turn Base64 back into text. 
 
 The tool accepts text only. It handles Unicode using UTF-8 and does not encode binary files. Inputs are limited to 120,000 characters.
 
+## Requirements
+
+- Node.js 20.19 or newer
+- A modern browser with `TextEncoder`, `TextDecoder`, and Base64 support
+
 ## Privacy and storage
 
 Conversion runs locally in the current browser page. Text is not sent to a server and the input is not saved to local storage. Reloading the page starts with the sample text again. Clipboard access requires a supported browser context, such as the deployed HTTPS site.
